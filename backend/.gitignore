@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 *.png
 *.jpg
+application.properties
 
 ### STS ###
 .apt_generated
