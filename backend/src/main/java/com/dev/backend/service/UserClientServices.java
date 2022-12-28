@@ -18,11 +18,16 @@ public class UserClientServices {
     @Autowired
     private UserPermissionService userPermissionService;
 
+    @Autowired
+    private EmailServices emailServices;
+
     public User insert(UserClientRequestDTO userClientRequestDTO) {
         User user = new UserClientRequestDTO().converter(userClientRequestDTO);
         user.setDateCreated(new Date());
         User newUser = userClientRepository.saveAndFlush(user);
         userPermissionService.linkUserPermissionClient(newUser);
+        emailServices.sendEmailText(newUser.getEmail(), "Cadastro na Loja LSTI", "Registration was successful. Soon you will receive the password by email.");
+        
         return newUser;
     }
 }

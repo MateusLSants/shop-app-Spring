@@ -19,7 +19,6 @@ public class UserClientContrioller {
 
     @PostMapping("/")
     public User insert(@RequestBody UserClientRequestDTO userClientRequestDTO) {
-        User user = new UserClientRequestDTO().converter(userClientRequestDTO);
         return userClientServices.insert(userClientRequestDTO);
     }
 }
