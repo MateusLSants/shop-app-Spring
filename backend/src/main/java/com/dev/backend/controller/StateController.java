@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.backend.entity.State;
-import com.dev.backend.service.StatesService;
+import com.dev.backend.service.StatesServices;
 
 
 @RestController
@@ -22,7 +22,7 @@ import com.dev.backend.service.StatesService;
 public class StateController {
     
     @Autowired
-    private StatesService statesService;
+    private StatesServices statesService;
 
     @GetMapping("/")
     public List<State> returnAllStates() {
