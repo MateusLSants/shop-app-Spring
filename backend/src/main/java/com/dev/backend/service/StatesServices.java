@@ -10,7 +10,7 @@ import com.dev.backend.entity.State;
 import com.dev.backend.repository.StatesRepository;
 
 @Service
-public class StatesService {
+public class StatesServices {
     
     @Autowired
     private StatesRepository statesRepository;
