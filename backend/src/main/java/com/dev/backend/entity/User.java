@@ -29,6 +29,10 @@ public class User {
     private String name;
     private String cpf;
     private String email;
+    private String password;
+    private String codeRecoveryPassword;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateSendCode;
     @ManyToOne
     @JoinColumn(name = "CityID")
     private City city;
@@ -39,6 +43,7 @@ public class User {
 
     private String address;
     private String cep;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
     @Temporal(TemporalType.TIMESTAMP)
