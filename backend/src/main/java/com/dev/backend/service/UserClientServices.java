@@ -1,6 +1,8 @@
 package com.dev.backend.service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +28,11 @@ public class UserClientServices {
         user.setDateCreated(new Date());
         User newUser = userClientRepository.saveAndFlush(user);
         userPermissionService.linkUserPermissionClient(newUser);
-        emailServices.sendEmailText(newUser.getEmail(), "Cadastro na Loja LSTI", "Registration was successful. Soon you will receive the password by email.");
-        
+        //emailServices.sendEmailText(newUser.getEmail(), "Cadastro na Loja LSTI", "Registration was successful. Soon you will receive the password by email.");
+        Map<String, Object> proprMap = new HashMap<>();
+        proprMap.put("name", newUser.getName());
+        proprMap.put("message", "Registration was successful. Soon you will receive the password by email.");
+        emailServices.send(newUser.getEmail(), "Registration at LSTI", proprMap);
         return newUser;
     }
 }
