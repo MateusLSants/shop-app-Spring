@@ -31,7 +31,7 @@ public class ProductImageController {
     }
 
     @PostMapping("/")
-    public ProductImage insert(@RequestParam("file") MultipartFile file, @RequestParam("ProductID") Long ProductID) {
+    public ProductImage insert(@RequestParam MultipartFile file, @RequestParam Long ProductID) {
         return productImageServices.insert(ProductID, file);
     }
 
@@ -41,7 +41,7 @@ public class ProductImageController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         productImageServices.delete(id);
         return ResponseEntity.ok().build();
     }

@@ -31,7 +31,7 @@ public class PermissionServices {
         return permissionRepository.saveAndFlush(permission);
     }
 
-    public void delete(@PathVariable("id") Long id) {
+    public void delete(@PathVariable Long id) {
         Permission permission = permissionRepository.findById(id).get();
         permissionRepository.delete(permission);
     }
